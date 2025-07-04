@@ -2,23 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import { doc, onSnapshot, setDoc, updateDoc, addDoc, collection, query, writeBatch, getDoc } from 'firebase/firestore';
 
-import { auth, db } from './services/firebase';
-import { fetchPrayerTimes } from './services/prayerTimesAPI';
-import { PRAYER_NAMES, POINTS_PER_QUADRANT } from './utils/constants';
+// FIX: Menambahkan ekstensi .js pada semua import lokal
+import { auth, db } from './services/firebase.js';
+import { fetchPrayerTimes } from './services/prayerTimesAPI.js';
+import { PRAYER_NAMES, POINTS_PER_QUADRANT } from './utils/constants.js';
 
 // Import Pages (Screens)
-import LoadingScreen from './pages/LoadingScreen';
-import OnboardingScreen from './pages/OnboardingScreen';
-import Dashboard from './pages/Dashboard';
-import Tasks from './pages/Tasks';
-import Reports from './pages/Reports';
-import Settings from './pages/Settings';
-import ErrorScreen from './pages/ErrorScreen';
+import LoadingScreen from './pages/LoadingScreen.js';
+import OnboardingScreen from './pages/OnboardingScreen.js';
+import Dashboard from './pages/Dashboard.js';
+import Tasks from './pages/Tasks.js';
+import Reports from './pages/Reports.js';
+import Settings from './pages/Settings.js';
+import ErrorScreen from './pages/ErrorScreen.js';
 
 // Import Components
-import BottomNav from './components/BottomNav';
-import AddTaskModal from './components/AddTaskModal';
-import { PlusIcon } from './components/Icons';
+import BottomNav from './components/BottomNav.js';
+import AddTaskModal from './components/AddTaskModal.js';
+import { PlusIcon } from './components/Icons.js';
 
 function App() {
     const [screen, setScreen] = useState('loading');
