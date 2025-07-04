@@ -1,0 +1,72 @@
+[debug] [2025-07-04T19:06:32.291Z] ----------------------------------------------------------------------
+[debug] [2025-07-04T19:06:32.296Z] Command:       /home/vash/.nvm/versions/node/v20.19.3/bin/node /home/vash/.nvm/versions/node/v20.19.3/bin/firebase init hosting:github
+[debug] [2025-07-04T19:06:32.296Z] CLI Version:   14.9.0
+[debug] [2025-07-04T19:06:32.297Z] Platform:      linux
+[debug] [2025-07-04T19:06:32.297Z] Node Version:  v20.19.3
+[debug] [2025-07-04T19:06:32.297Z] Time:          Sat Jul 05 2025 02:06:32 GMT+0700 (Waktu Indonesia Barat)
+[debug] [2025-07-04T19:06:32.297Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-04T19:06:32.765Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-04T19:06:32.766Z] > authorizing via signed-in user (alhabib1945@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/vash/project/shalatplan-pwa
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-07-04T19:06:32.775Z] Using project from CLI flag: shalatplan
+[debug] [2025-07-04T19:06:32.777Z] Checked if tokens are valid: true, expires at: 1751657838071
+[debug] [2025-07-04T19:06:32.777Z] Checked if tokens are valid: true, expires at: 1751657838071
+[debug] [2025-07-04T19:06:32.781Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shalatplan [none]
+[debug] [2025-07-04T19:06:33.897Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shalatplan 200
+[debug] [2025-07-04T19:06:33.897Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shalatplan {"projectId":"shalatplan","projectNumber":"189639459484","displayName":"Shalatplan","name":"projects/shalatplan","resources":{"hostingSite":"shalatplan"},"state":"ACTIVE","etag":"1_9ae45848-9117-46a5-8067-dde91d59a1ee"}
+[info] i  Using project shalatplan (Shalatplan) 
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /home/vash/project/shalatplan-pwa 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=148134984&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-07-04T19:06:40.868Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2025-07-04T19:06:40.869Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2025-07-04T19:06:42.390Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2025-07-04T19:06:42.391Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2025-07-04T19:06:42.399Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2025-07-04T19:06:44.439Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2025-07-04T19:06:44.440Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"vash1945","id":51256539,"node_id":"MDQ6VXNlcjUxMjU2NTM5","avatar_url":"https://avatars.githubusercontent.com/u/51256539?v=4","gravatar_id":"","url":"https://api.github.com/users/vash1945","html_url":"https://github.com/vash1945","followers_url":"https://api.github.com/users/vash1945/followers","following_url":"https://api.github.com/users/vash1945/following{/other_user}","gists_url":"https://api.github.com/users/vash1945/gists{/gist_id}","starred_url":"https://api.github.com/users/vash1945/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/vash1945/subscriptions","organizations_url":"https://api.github.com/users/vash1945/orgs","repos_url":"https://api.github.com/users/vash1945/repos","events_url":"https://api.github.com/users/vash1945/events{/privacy}","received_events_url":"https://api.github.com/users/vash1945/received_events","type":"User","user_view_type":"private","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":1,"public_gists":1,"followers":0,"following":2,"created_at":"2019-06-01T06:01:22Z","updated_at":"2025-06-24T12:04:19Z","private_gists":0,"total_private_repos":7,"owned_private_repos":7,"disk_usage":231,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as vash1945 
+[info] 
+[debug] [2025-07-04T19:06:52.119Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (/home/vash/.nvm/versions/node/v20.19.3/lib/node_modules/firebase-tools/node_modules/@inquirer/core/dist/commonjs/lib/create-prompt.js:101:37)
+    at Interface.emit (node:events:524:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1125:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:264:20)
+    at ReadStream.emit (node:events:536:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:371:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
