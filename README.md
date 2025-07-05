@@ -1,5 +1,7 @@
 # ShalatPlan PWA
 
+*ShalatPlan — Mengatur Waktu, Meraih Berkah.*
+
 **ShalatPlan** adalah Progressive Web App (PWA) yang dirancang untuk menjadi asisten ibadah dan produktivitas harian Anda. Aplikasi ini membantu Anda melacak waktu shalat dan mengelola tugas menggunakan metode Kuadran Eisenhower.
 
 ## Fitur Utama
@@ -43,8 +45,17 @@
 
     Buka [http://localhost:3000](http://localhost:3000) untuk melihatnya di browser.
 
-5.  **Build aplikasi untuk production:**
-    ```bash
-    npm run build
-    ```
+## Lisensi dan Atribusi
+
+#### Lisensi
+-   Kode sumber aplikasi ini dilisensikan di bawah **[GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)**.
+-   Konten dan desain visual menggunakan lisensi **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)**.
+
+#### Atribusi dan Semangat Berbagi
+💚 Copyleft oleh Habibie. Karya ini bebas digunakan, dimodifikasi, dan disebarluaskan untuk kebaikan bersama. Mohon tetap mencantumkan nama pembuat dan menjaga semangat berbagi.
+
+#### Ucapan Terima Kasih
+Terima kasih yang tulus untuk Ustadz, para guru, kedua orang tuaku, dan semua yang telah mendoakan serta mendukungku. Semoga Allah SWT membalas setiap kebaikan dengan pahala yang berlipat.
+
+---
 
