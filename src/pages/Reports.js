@@ -1,5 +1,5 @@
 import React from 'react';
-import { StarIcon } from '../components/Icons.js';
+// FIX: Menghapus 'StarIcon' karena tidak lagi digunakan di file ini.
 import { ACHIEVEMENTS } from '../utils/achievements.js';
 import PrayerCalendar from '../components/PrayerCalendar.js';
 
@@ -8,7 +8,6 @@ function ReportsScreen({ tasks, prayerLog, userData, achievements }) {
         <div className="space-y-6 animate-fade-in dark:text-dark-text">
         <h1 className="text-2xl font-bold">Laporan & Statistik</h1>
 
-        {/* FIX: Lencana Pencapaian dipindahkan ke atas */}
         <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow">
         <h2 className="text-lg font-bold mb-4">Lencana Pencapaian</h2>
         {achievements && achievements.length > 0 ? (
@@ -30,7 +29,6 @@ function ReportsScreen({ tasks, prayerLog, userData, achievements }) {
         )}
         </div>
 
-        {/* FIX: Kalender Konsistensi dipindahkan ke bawah */}
         <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow">
         <h2 className="text-lg font-bold mb-4">Kalender Konsistensi Shalat</h2>
         <PrayerCalendar prayerLog={prayerLog} />

@@ -1,12 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+// FIX: Menghapus 'useEffect' karena tidak digunakan.
 import { APP_COPYRIGHT, APP_ACKNOWLEDGMENTS, APP_MOTTO } from '../utils/constants.js';
 import { handleSignOut } from '../services/auth.js';
 
 function SettingsScreen({ userData, onSetCity, userId, theme, toggleTheme, notificationOffset, onSetNotificationOffset }) {
     const [city, setCity] = useState(userData?.city || '');
+    const [isCopied, setIsCopied] = useState(false);
 
     const handleOffsetChange = (e) => {
         onSetNotificationOffset(Number(e.target.value));
+    };
+
+    const copyUserId = () => {
+        navigator.clipboard.writeText(userId).then(() => {
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 2000);
+        });
     };
 
     return (
@@ -23,7 +32,6 @@ function SettingsScreen({ userData, onSetCity, userId, theme, toggleTheme, notif
         </div>
         </div>
 
-        {/* --- PENGATURAN NOTIFIKASI BARU --- */}
         <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow">
         <h2 className="text-lg font-bold mb-4">Notifikasi Shalat</h2>
         <div className="space-y-2">
@@ -50,8 +58,19 @@ function SettingsScreen({ userData, onSetCity, userId, theme, toggleTheme, notif
         </form>
         </div>
 
+        <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow">
+        <h2 className="text-lg font-bold mb-2">Tentang Aplikasi</h2>
+        <p className="text-center italic text-gray-600 dark:text-dark-text-secondary mb-4">"{APP_MOTTO}"</p>
+        <div className="text-sm text-gray-500 dark:text-dark-text-secondary space-y-3">
+        <p>{APP_COPYRIGHT}</p>
+        <p>{APP_ACKNOWLEDGMENTS}</p>
+        </div>
+        </div>
+
         <div className="mt-6">
-        <button onClick={handleSignOut} className="w-full bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300">Keluar (Logout)</button>
+        <button onClick={handleSignOut} className="w-full bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300">
+        Keluar (Logout)
+        </button>
         </div>
         </div>
     );
