@@ -1,6 +1,7 @@
 {
   "name": "shalatplan-pwa",
   "version": "1.0.0",
+  "homepage": "https://vash1945.github.io/shalatplan-pwa",
   "description": "Asisten ibadah dan produktivitas harian.",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.4.4"
   },
@@ -17,6 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+
   },
   "eslintConfig": {
     "extends": [
