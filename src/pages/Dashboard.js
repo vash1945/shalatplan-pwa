@@ -3,8 +3,8 @@ import { PRAYER_NAMES } from '../utils/constants.js';
 import { getTodayDate } from '../utils/helpers.js';
 import { CheckCircleIcon, XCircleIcon, MinusCircleIcon, PlusCircleIcon } from '../components/Icons.js';
 
-// Menerima prop baru: onIncrementQadha
-function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer, error, dailyVerse, qadhaPrayers, onDecrementQadha, onIncrementQadha, onOpenQadhaSetup }) {
+// Menerima prop baru: onAttemptDecrementQadha
+function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer, error, dailyVerse, qadhaPrayers, onAttemptDecrementQadha, onIncrementQadha, onOpenQadhaSetup }) {
     const [nextPrayer, setNextPrayer] = useState({ name: '', time: '', countdown: '' });
 
     useEffect(() => {
@@ -92,12 +92,12 @@ function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer,
                 <div key={prayer} className="flex items-center justify-between">
                 <span className="font-semibold text-gray-700 dark:text-dark-text">{prayer}</span>
                 <div className="flex items-center gap-3">
-                {/* FIX: Tombol tambah untuk menaikkan hitungan */}
                 <button onClick={() => onIncrementQadha(prayer)} className="text-green-500">
                 <PlusCircleIcon />
                 </button>
                 <span className="font-bold text-xl text-teal-600 w-8 text-center">{count}</span>
-                <button onClick={() => onDecrementQadha(prayer)} disabled={count === 0} className="text-red-500 disabled:text-gray-300 disabled:cursor-not-allowed">
+                {/* FIX: Tombol minus sekarang membuka modal konfirmasi */}
+                <button onClick={() => onAttemptDecrementQadha(prayer)} disabled={count === 0} className="text-red-500 disabled:text-gray-300 disabled:cursor-not-allowed">
                 <MinusCircleIcon />
                 </button>
                 </div>
