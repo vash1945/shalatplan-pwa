@@ -1,2 +1,34 @@
+# Dependency folders
 node_modules/
 .cache/
+
+# Build output
+build/
+dist/
+
+# Environment & secrets
+.env
+.env.local
+.env.*
+firebase-debug.log
+serviceAccountKey.json
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+pglite-debug.log
+
+# Firebase CLI
+.firebase/
+
+# Tools / scripts
+bfg.jar
+bfg-cleanse.sh
+clean-project.sh
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.env
