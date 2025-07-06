@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// FIX: Menghapus 'useEffect' karena tidak digunakan.
 import { APP_COPYRIGHT, APP_ACKNOWLEDGMENTS, APP_MOTTO } from '../utils/constants.js';
 import { handleSignOut } from '../services/auth.js';
 
@@ -12,6 +11,7 @@ function SettingsScreen({ userData, onSetCity, userId, theme, toggleTheme, notif
     };
 
     const copyUserId = () => {
+        if (!userId) return;
         navigator.clipboard.writeText(userId).then(() => {
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 2000);
@@ -56,6 +56,18 @@ function SettingsScreen({ userData, onSetCity, userId, theme, toggleTheme, notif
         <input id="city-setting" type="text" value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-dark-bg focus:outline-none focus:ring-teal-500" />
         <button type="submit" className="mt-4 w-full bg-teal-500 text-white font-bold py-2 px-4 rounded-md hover:bg-teal-600 transition duration-300">Perbarui Kota</button>
         </form>
+        </div>
+
+        {/* FIX: Menambahkan kembali bagian Informasi Akun agar fungsi bisa digunakan */}
+        <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow">
+        <h2 className="text-lg font-bold mb-2">Informasi Akun</h2>
+        <p className="text-sm text-gray-600 dark:text-dark-text-secondary mb-2">User ID Anda unik untuk perangkat ini.</p>
+        <div className="flex items-center gap-2 bg-gray-100 dark:bg-dark-bg p-2 rounded-md">
+        <p className="text-xs text-gray-700 dark:text-dark-text-secondary truncate flex-grow">{userId || '...'}</p>
+        <button onClick={copyUserId} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-dark-text text-xs font-bold py-1 px-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600" disabled={!userId}>
+        {isCopied ? 'Disalin!' : 'Salin'}
+        </button>
+        </div>
         </div>
 
         <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow">

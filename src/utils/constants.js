@@ -19,5 +19,5 @@ export const QUADRANT_DEFINITIONS = {
 export const POINTS_PER_QUADRANT = { 1: 10, 2: 20, 3: 5, 4: 1 };
 
 export const APP_COPYRIGHT = "💚 Copyleft oleh Habibie. Karya ini bebas digunakan, dimodifikasi, dan disebarluaskan untuk kebaikan bersama. Mohon tetap mencantumkan nama pembuat dan menjaga semangat berbagi.";
-export const APP_ACKNOWLEDGMENTS = "Terima kasih yang tulus Untuk para guru, kedua orang tuaku, dan semua yang telah mendoakan serta mendukungku. Semoga Allah SWT membalas setiap kebaikan dengan pahala yang berlipat.";
+export const APP_ACKNOWLEDGMENTS = "Terima kasih yang tulus untuk para guru, kedua orang tuaku, dan semua yang telah mendoakan serta mendukungku. Semoga Allah SWT membalas setiap kebaikan dengan pahala yang berlipat.";
 export const APP_MOTTO = "ShalatPlan — Mengatur Waktu, Meraih Berkah.";

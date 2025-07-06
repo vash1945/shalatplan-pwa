@@ -55,9 +55,9 @@
 💚 Copyleft oleh Habibie. Karya ini bebas digunakan, dimodifikasi, dan disebarluaskan untuk kebaikan bersama. Mohon tetap mencantumkan nama pembuat dan menjaga semangat berbagi.
 
 #### Ucapan Terima Kasih
-Terima kasih yang tulus untuk Ustadz, para guru, kedua orang tuaku, dan semua yang telah mendoakan serta mendukungku. Semoga Allah SWT membalas setiap kebaikan dengan pahala yang berlipat.
+Terima kasih yang tulus untuk para guru, kedua orang tuaku, dan semua yang telah mendoakan serta mendukungku. Semoga Allah SWT membalas setiap kebaikan dengan pahala yang berlipat.
 
 ---
-[![Firebase Hosting](https://github.com/<vash1945>/<shalatplan-pwa>/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/<vash1945>/<shalatplan-pwa>/actions)
+[![Firebase Hosting](https://github.com/<vash1945>/<shalatplan-pwa>/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/vash1945/shalatplan-pwa/actions)
 
 

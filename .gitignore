@@ -32,3 +32,4 @@ clean-project.sh
 .vscode/
 *.swp
 .env
+.env

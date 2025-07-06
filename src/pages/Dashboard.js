@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { PRAYER_NAMES } from '../utils/constants.js';
 import { getTodayDate } from '../utils/helpers.js';
-import { CheckCircleIcon, XCircleIcon, MinusCircleIcon } from '../components/Icons.js';
+import { CheckCircleIcon, XCircleIcon, MinusCircleIcon, PlusCircleIcon } from '../components/Icons.js';
 
-function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer, error, dailyVerse, qadhaPrayers, onDecrementQadha, onOpenQadhaSetup }) {
+// Menerima prop baru: onIncrementQadha
+function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer, error, dailyVerse, qadhaPrayers, onDecrementQadha, onIncrementQadha, onOpenQadhaSetup }) {
     const [nextPrayer, setNextPrayer] = useState({ name: '', time: '', countdown: '' });
 
     useEffect(() => {
@@ -11,20 +12,14 @@ function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer,
         const getNextPrayer = () => {
             const now = new Date();
             const nowTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-
-            // Logika ini sekarang akan berfungsi dengan benar karena PRAYER_NAMES
-            // sudah cocok dengan kunci dari API (Fajr, Dhuhr, dll.)
             const sortedPrayers = Object.entries(prayerTimes)
             .filter(([apiKey, time]) => PRAYER_NAMES[apiKey] && typeof time === 'string')
             .map(([apiKey, time]) => ({ name: PRAYER_NAMES[apiKey], time }))
             .sort((a, b) => a.time.localeCompare(b.time));
-
             if (sortedPrayers.length === 0) return;
-
             let next = sortedPrayers.find(p => p.time > nowTime);
-            if (!next) { next = sortedPrayers[0]; } // Jika sudah lewat semua, ambil Subuh besok
+            if (!next) { next = sortedPrayers[0]; }
             if (!next) return;
-
             const [h, m] = next.time.split(':');
             const prayerDate = new Date();
             prayerDate.setHours(h, m, 0, 0);
@@ -81,11 +76,7 @@ function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer,
                 <div key={apiKey} className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                 <div><p className="font-semibold">{displayName}</p><p className="text-gray-500 dark:text-dark-text-secondary">{time}</p></div>
                 {mainPrayers.includes(displayName) && (
-                    log ? (
-                        <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-sm ${log.status === 'dilaksanakan' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{log.status === 'dilaksanakan' ? <CheckCircleIcon /> : <XCircleIcon />}<span>{log.status === 'dilaksanakan' ? 'Sudah' : 'Terlewat'}</span></div>
-                    ) : (
-                        <div className="flex gap-2"><button onClick={() => onLogPrayer(displayName, 'dilaksanakan')} className="bg-green-500 text-white p-2 rounded-full shadow hover:bg-green-600"><CheckCircleIcon /></button><button onClick={() => onLogPrayer(displayName, 'terlewat')} className="bg-red-500 text-white p-2 rounded-full shadow hover:bg-red-600"><XCircleIcon /></button></div>
-                    )
+                    log ? (<div className={`flex items-center gap-2 px-3 py-1 rounded-full text-sm ${log.status === 'dilaksanakan' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{log.status === 'dilaksanakan' ? <CheckCircleIcon /> : <XCircleIcon />}<span>{log.status === 'dilaksanakan' ? 'Sudah' : 'Terlewat'}</span></div>) : (<div className="flex gap-2"><button onClick={() => onLogPrayer(displayName, 'dilaksanakan')} className="bg-green-500 text-white p-2 rounded-full shadow hover:bg-green-600"><CheckCircleIcon /></button><button onClick={() => onLogPrayer(displayName, 'terlewat')} className="bg-red-500 text-white p-2 rounded-full shadow hover:bg-red-600"><XCircleIcon /></button></div>)
                 )}
                 </div>
             )
@@ -100,13 +91,19 @@ function DashboardScreen({ prayerTimes, userData, tasks, prayerLog, onLogPrayer,
             {Object.entries(qadhaPrayers).map(([prayer, count]) => (
                 <div key={prayer} className="flex items-center justify-between">
                 <span className="font-semibold text-gray-700 dark:text-dark-text">{prayer}</span>
-                <div className="flex items-center gap-4">
-                <span className="font-bold text-xl text-teal-600">{count}</span>
-                <button onClick={() => onDecrementQadha(prayer)} disabled={count === 0} className="text-red-500 disabled:text-gray-300 disabled:cursor-not-allowed"><MinusCircleIcon /></button>
+                <div className="flex items-center gap-3">
+                {/* FIX: Tombol tambah untuk menaikkan hitungan */}
+                <button onClick={() => onIncrementQadha(prayer)} className="text-green-500">
+                <PlusCircleIcon />
+                </button>
+                <span className="font-bold text-xl text-teal-600 w-8 text-center">{count}</span>
+                <button onClick={() => onDecrementQadha(prayer)} disabled={count === 0} className="text-red-500 disabled:text-gray-300 disabled:cursor-not-allowed">
+                <MinusCircleIcon />
+                </button>
                 </div>
                 </div>
             ))}
-            <button onClick={onOpenQadhaSetup} className="text-sm text-teal-600 hover:underline pt-2">Ubah Jumlah Hutang Shalat</button>
+            <button onClick={onOpenQadhaSetup} className="text-sm text-teal-600 hover:underline pt-2">Atur Ulang Jumlah</button>
             </div>
         ) : (
             <div className="text-center">

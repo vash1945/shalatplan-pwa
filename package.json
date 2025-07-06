@@ -1,7 +1,7 @@
 {
   "name": "shalatplan-pwa",
   "version": "1.0.0",
-  "homepage": "https://vash1945.github.io/shalatplan-pwa",
+  "homepage": ".",
   "description": "Asisten ibadah dan produktivitas harian.",
   "private": true,
   "dependencies": {
